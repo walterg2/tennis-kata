@@ -1,0 +1,30 @@
+{
+  "name": "tennis-kata",
+  "version": "1.0.0",
+  "description": "This Kata is about implementing a simple tennis game. I came up with it while thinking about Wii tennis, where they have simplified tennis, so each set is one game.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walterg2/tennis-kata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walterg2/tennis-kata/issues"
+  },
+  "homepage": "https://github.com/walterg2/tennis-kata#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "babel-jest": "^29.0.3",
+    "jest": "^29.0.3"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  }
+}
