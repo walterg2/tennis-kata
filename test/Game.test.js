@@ -8,9 +8,9 @@ describe('Tennis Game', () => {
     expect(game.players.length).toEqual(2)
   })
 
-  it('starts with a score of 0/0', () => {
+  it('starts with a score of love-all', () => {
     const game = new Game()
 
-    expect(game.score).toEqual([0,0])
+    expect(game.getScore()).toEqual("love-all")
   })
 })

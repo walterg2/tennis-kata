@@ -3,4 +3,8 @@ export default class Game {
     this.players = ['Player1', 'Player2']
     this.score = [0,0]
   }
+
+  getScore() {
+    return "love-all"
+  }
 }
