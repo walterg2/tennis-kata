@@ -37,5 +37,12 @@ describe("Tennis Game", () => {
 
       expect(game.getScore()).toEqual("40, love");
     });
+
+    it('updates the score for both players to "15 15" when both score once', () => {
+      game.scorePoint("Player1")
+      game.scorePoint("Player2")
+
+      expect(game.getScore()).toEqual("15, 15")
+    })
   });
 });
