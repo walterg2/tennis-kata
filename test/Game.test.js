@@ -13,4 +13,12 @@ describe('Tennis Game', () => {
 
     expect(game.getScore()).toEqual("love-all")
   })
+
+  it('advances the score when a player wins a set', () => {
+    const game = new Game()
+
+    game.scorePoint(1)
+
+    expect(game.points).toEqual([1,0])
+  })
 })
