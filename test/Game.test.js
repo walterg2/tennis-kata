@@ -61,13 +61,16 @@ describe("Tennis Game", () => {
       expect(game.winner).toEqual("Player2");
     });
 
-    it("does not set the winner if neither player has at least two points more than the other", () => {
+    it.each([
+      ["Player1", "Player2"],
+      ["Player2", "Player1"]
+    ])("does not set the winner if neither player has at least two points more than the other", (winner, loser) => {
       times(3, () => {
-        game.scorePoint("Player1");
-        game.scorePoint("Player2");
+        game.scorePoint(winner);
+        game.scorePoint(loser);
       });
 
-      game.scorePoint("Player1");
+      game.scorePoint(winner);
 
       expect(game.winner).toBeNull();
     });
