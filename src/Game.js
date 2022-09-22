@@ -1,3 +1,7 @@
+const AVAILABLE_POINTS = [
+  "love", "15", "30", "40"
+]
+
 export default class Game {
   constructor() {
     this.players = ['Player1', 'Player2']
@@ -11,6 +15,6 @@ export default class Game {
   getScore() {
     if (this.points[0] === 0 && this.points[1] === 0) return "love-all"
 
-    return "15, love"
+    return `${AVAILABLE_POINTS[this.points[0]]}, love`
   }
 }
