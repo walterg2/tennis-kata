@@ -14,11 +14,19 @@ describe('Tennis Game', () => {
     expect(game.getScore()).toEqual("love-all")
   })
 
-  it('advances the score when a player wins a set', () => {
+  it('allows the player to score a point', () => {
     const game = new Game()
 
     game.scorePoint(1)
 
     expect(game.points).toEqual([1,0])
+  })
+
+  it('updates the score to "15, love" when player 1 scores', () => {
+    const game = new Game()
+
+    game.scorePoint(1)
+
+    expect(game.getScore()).toEqual("15, love")
   })
 })

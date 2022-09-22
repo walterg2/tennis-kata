@@ -9,6 +9,8 @@ export default class Game {
   }
 
   getScore() {
-    return "love-all"
+    if (this.points[0] === 0 && this.points[1] === 0) return "love-all"
+
+    return "15, love"
   }
 }
