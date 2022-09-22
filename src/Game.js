@@ -5,6 +5,7 @@ export default class Game {
 
   constructor() {
     this.players = ["Player1", "Player2"];
+    this.winner = null;
   }
 
   scorePoint(playerName) {
@@ -15,6 +16,8 @@ export default class Game {
   getScore() {
     if (this._points[0] === 0 && this._points[1] === 0) return "love-all";
 
-    return `${AVAILABLE_POINTS[this._points[0]]}, ${AVAILABLE_POINTS[this._points[1]]}`;
+    return `${AVAILABLE_POINTS[this._points[0]]}, ${
+      AVAILABLE_POINTS[this._points[1]]
+    }`;
   }
 }

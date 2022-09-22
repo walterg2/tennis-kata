@@ -1,3 +1,4 @@
+import { times } from "lodash";
 import Game from "../src/Game";
 
 describe("Tennis Game", () => {
@@ -38,11 +39,17 @@ describe("Tennis Game", () => {
       expect(game.getScore()).toEqual("40, love");
     });
 
-    it('updates the score for both players to "15 15" when both score once', () => {
-      game.scorePoint("Player1")
-      game.scorePoint("Player2")
+    it('updates the score for both players to "15, 15" when both score once', () => {
+      game.scorePoint("Player1");
+      game.scorePoint("Player2");
 
-      expect(game.getScore()).toEqual("15, 15")
-    })
+      expect(game.getScore()).toEqual("15, 15");
+    });
+  });
+
+  describe("winning", () => {
+    it("shows no winner when no one has 4 points", () => {
+      expect(game.winner).toBeNull();
+    });
   });
 });
