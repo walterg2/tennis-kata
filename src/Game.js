@@ -1,21 +1,20 @@
-const AVAILABLE_POINTS = [
-  "love", "15", "30", "40"
-]
+const AVAILABLE_POINTS = ["love", "15", "30", "40"];
 
 export default class Game {
+  _points = [0, 0];
+
   constructor() {
-    this.players = ['Player1', 'Player2']
-    this.points = [0,0]
+    this.players = ["Player1", "Player2"];
   }
 
   scorePoint(playerName) {
-    const player = this.players.findIndex(p => p === playerName)
-    this.points[player]++
+    const player = this.players.findIndex((p) => p === playerName);
+    this._points[player]++;
   }
 
   getScore() {
-    if (this.points[0] === 0 && this.points[1] === 0) return "love-all"
+    if (this._points[0] === 0 && this._points[1] === 0) return "love-all";
 
-    return `${AVAILABLE_POINTS[this.points[0]]}, love`
+    return `${AVAILABLE_POINTS[this._points[0]]}, love`;
   }
 }
