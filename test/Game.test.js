@@ -20,6 +20,10 @@ describe('Tennis Game', () => {
     game.scorePoint(1)
 
     expect(game.points).toEqual([1,0])
+
+    game.scorePoint(2)
+
+    expect(game.points).toEqual([1,1])
   })
 
   it('updates the score to "15, love" when player 1 scores', () => {
