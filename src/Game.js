@@ -8,8 +8,9 @@ export default class Game {
     this.points = [0,0]
   }
 
-  scorePoint(player) {
-    this.points[player - 1]++
+  scorePoint(playerName) {
+    const player = this.players.findIndex(p => p === playerName)
+    this.points[player]++
   }
 
   getScore() {

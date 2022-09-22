@@ -17,32 +17,32 @@ describe('Tennis Game', () => {
   })
 
   it('allows the player to score a point', () => {
-    game.scorePoint(1)
+    game.scorePoint('Player1')
 
     expect(game.points).toEqual([1,0])
 
-    game.scorePoint(2)
+    game.scorePoint('Player2')
 
     expect(game.points).toEqual([1,1])
   })
 
   it('updates the score to "15, love" when player 1 scores', () => {
-    game.scorePoint(1)
+    game.scorePoint('Player1')
 
     expect(game.getScore()).toEqual("15, love")
   })
 
   it('updates the score to "30, love" when player 1 scores twice', () => {
-    game.scorePoint(1)
-    game.scorePoint(1)
+    game.scorePoint('Player1')
+    game.scorePoint('Player1')
 
     expect(game.getScore()).toEqual("30, love")
   })
 
   it('updates the score to "40, love" when player 1 scores three times', () => {
-    game.scorePoint(1)
-    game.scorePoint(1)
-    game.scorePoint(1)
+    game.scorePoint('Player1')
+    game.scorePoint('Player1')
+    game.scorePoint('Player1')
 
     expect(game.getScore()).toEqual("40, love")
   })
