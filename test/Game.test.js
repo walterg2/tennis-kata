@@ -36,11 +36,22 @@ describe("Tennis Game", () => {
       expect(game.getScore()).toEqual("40, love");
     });
 
-    it('updates the score for both players to "15, 15" when both score once', () => {
-      game.scorePoint("Player1");
+    it('updates the score to "love , 15" when player 2 scores', () => {
       game.scorePoint("Player2");
 
-      expect(game.getScore()).toEqual("15, 15");
+      expect(game.getScore()).toEqual("love, 15");
+    });
+
+    it('updates the score to "love, 30" when player 2 scores twice', () => {
+      times(2, () => game.scorePoint("Player2"));
+
+      expect(game.getScore()).toEqual("love, 30");
+    });
+
+    it('updates the score to "love, 40" when player 2 scores three times', () => {
+      times(3, () => game.scorePoint("Player2"));
+
+      expect(game.getScore()).toEqual("love, 40");
     });
   });
 
