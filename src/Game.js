@@ -11,6 +11,9 @@ export default class Game {
   scorePoint(playerName) {
     const player = this.players.findIndex((p) => p === playerName);
     this._points[player]++;
+
+    if (this._points[player] === 4 && this._calculatePointSpread() >= 2)
+      this.winner = playerName;
   }
 
   getScore() {
@@ -19,5 +22,9 @@ export default class Game {
     return `${AVAILABLE_POINTS[this._points[0]]}, ${
       AVAILABLE_POINTS[this._points[1]]
     }`;
+  }
+
+  _calculatePointSpread() {
+    return Math.abs(this._points[0] - this._points[1]);
   }
 }

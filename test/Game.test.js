@@ -25,16 +25,13 @@ describe("Tennis Game", () => {
     });
 
     it('updates the score to "30, love" when player 1 scores twice', () => {
-      game.scorePoint("Player1");
-      game.scorePoint("Player1");
+      times(2, () => game.scorePoint("Player1"));
 
       expect(game.getScore()).toEqual("30, love");
     });
 
     it('updates the score to "40, love" when player 1 scores three times', () => {
-      game.scorePoint("Player1");
-      game.scorePoint("Player1");
-      game.scorePoint("Player1");
+      times(3, () => game.scorePoint("Player1"));
 
       expect(game.getScore()).toEqual("40, love");
     });
@@ -49,6 +46,29 @@ describe("Tennis Game", () => {
 
   describe("winning", () => {
     it("shows no winner when no one has 4 points", () => {
+      expect(game.winner).toBeNull();
+    });
+
+    it("sets Player1 as the winner when they score 4 points", () => {
+      times(4, () => game.scorePoint("Player1"));
+
+      expect(game.winner).toEqual("Player1");
+    });
+
+    it("sets Player2 as the winner when they score 4 points", () => {
+      times(4, () => game.scorePoint("Player2"));
+
+      expect(game.winner).toEqual("Player2");
+    });
+
+    it("does not set the winner if neither player has at least two points more than the other", () => {
+      times(3, () => {
+        game.scorePoint("Player1");
+        game.scorePoint("Player2");
+      });
+
+      game.scorePoint("Player1");
+
       expect(game.winner).toBeNull();
     });
   });
