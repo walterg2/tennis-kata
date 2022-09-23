@@ -17,7 +17,8 @@ export default class Game {
   }
 
   getScore() {
-    if (this._points[0] === 0 && this._points[1] === 0) return "love-all";
+    if (this._points[0] === this._points[1])
+      return `${AVAILABLE_POINTS[this._points[0]]}-all`;
 
     return `${AVAILABLE_POINTS[this._points[0]]}, ${
       AVAILABLE_POINTS[this._points[1]]

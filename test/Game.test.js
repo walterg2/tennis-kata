@@ -53,6 +53,20 @@ describe("Tennis Game", () => {
 
       expect(game.getScore()).toEqual("love, 40");
     });
+
+    describe("'-all' points", () => {
+      it.each([[1, "15-all"], [2, "30-all"]])(
+        "shows the score as a single score plus '-all' when the two players' scores match",
+        (timesScored, expectedScore) => {
+          times(timesScored, () => {
+            game.scorePoint("Player1");
+            game.scorePoint("Player2");
+          });
+
+          expect(game.getScore()).toEqual(expectedScore);
+        }
+      );
+    });
   });
 
   describe("winning", () => {
@@ -74,16 +88,19 @@ describe("Tennis Game", () => {
 
     it.each([
       ["Player1", "Player2"],
-      ["Player2", "Player1"]
-    ])("does not set the winner if neither player has at least two points more than the other", (winner, loser) => {
-      times(3, () => {
+      ["Player2", "Player1"],
+    ])(
+      "does not set the winner if neither player has at least two points more than the other",
+      (winner, loser) => {
+        times(3, () => {
+          game.scorePoint(winner);
+          game.scorePoint(loser);
+        });
+
         game.scorePoint(winner);
-        game.scorePoint(loser);
-      });
 
-      game.scorePoint(winner);
-
-      expect(game.winner).toBeNull();
-    });
+        expect(game.winner).toBeNull();
+      }
+    );
   });
 });
